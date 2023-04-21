@@ -55,7 +55,6 @@ export default {
     data() {
         return {
             userInfo: null,
-            favorites: [],
             todo: {
                 userId: '',
                 title: ''
@@ -64,7 +63,7 @@ export default {
                 userId: null,
                 title: null,
             },
-            idIncrement: 0,
+            idIncrement: 10,
             isLoading: true,
         }
     },

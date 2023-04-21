@@ -40,7 +40,7 @@
                 <div class="list-body">
                     <div class="list-body-title">
                         <span class="list-body-title-id">Id: {{ todo.id }}</span>
-                        <span>User id: {{ todo.userId }}</span>
+                        <span>User id:768767 {{ todo.userId }}</span>
                     </div>
                     <p>{{ todo.title }}</p>
                 </div>
@@ -83,6 +83,7 @@ export default {
             },
             todos: [],
             todosBackup: null,
+            favorites: [],
         }
     },
 
@@ -90,11 +91,13 @@ export default {
         const todosResponse = await fetch('https://jsonplaceholder.typicode.com/todos');
         this.todos = await todosResponse.json();
 
-        this.favorites = JSON.parse(localStorage.getItem('favourites'));
+        this.favorites = JSON.parse(localStorage.getItem('favourites')) || [];
 
-        this.todos.forEach((element) => {
-            element.isFavourite = this.favorites && this.favorites.includes(element.id);
-        });
+        if (this.favorites.length) {
+            this.todos.forEach((element) => {
+                element.isFavourite =  this.favorites.includes(element.id);
+            });
+        }
 
         this.todosBackup = this.todos;
     },
