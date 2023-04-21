@@ -40,7 +40,7 @@
                 <div class="list-body">
                     <div class="list-body-title">
                         <span class="list-body-title-id">Id: {{ todo.id }}</span>
-                        <span>User id:768767 {{ todo.userId }}</span>
+                        <span>User id: {{ todo.userId }}</span>
                     </div>
                     <p>{{ todo.title }}</p>
                 </div>
